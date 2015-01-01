@@ -48,7 +48,7 @@ public class Patient
 			public void printPatient ( Patient patient)
 			{
 				if (patient.nextPatient == null)
-					System.out.println ( patient + "/n");
+					System.out.println ( patient );
 				else
 				{
 					System.out.println (patient);
