@@ -19,7 +19,8 @@ public class Patient
 			// this is a member method of class Patient
 			public void addPatient(Patient newPatient)
 			{
-				if (this.nextPatient == null) {
+				if (this.nextPatient == null)
+				{
 				// this means this is the last patient in the list
 				this.nextPatient = newPatient;
 				newPatient.prevPatient = this;
@@ -41,9 +42,18 @@ public class Patient
 				// Now link this patient to the one after the next
 				this.nextPatient = nextPatient.nextPatient;
 				return true;
-				} else {
+				} else
+				{
 				return this.nextPatient.deletePatient(patient);
 				}
+			}
+			public void removeFirstPatient ()
+			{
+				if (this.nextPatient == null)
+					return;
+				else
+					nextPatient = nextPatient.nextPatient;
+
 			}
 			public void printPatient ( Patient patient)
 			{
@@ -54,6 +64,27 @@ public class Patient
 					System.out.println (patient);
 					printPatient (patient.nextPatient);
 				}
+			}
+			public int countingPatients (Patient patient)
+			{
+				if (this.nextPatient == null)
+					return 1;
+				else
+				{
+					return 1+patient.nextPatient.countingPatients(patient.nextPatient);
+				}
+			}
+
+			public int countingPatientsIterative()
+			{
+				int patientCount=0;
+				Patient currentPatient = this;
+				while (currentPatient != null)
+				{
+					patientCount++;
+					currentPatient = currentPatient.nextPatient;
+				}
+				return patientCount;
 			}
 			public String toString()
 			{
