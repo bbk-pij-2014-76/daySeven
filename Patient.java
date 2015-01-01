@@ -55,6 +55,10 @@ public class Patient
 					printPatient (patient.nextPatient);
 				}
 			}
+			public String toString()
+			{
+				return this.name+", "+this.age+", "+this.illness;
+			}
 
 
 }
